@@ -1,0 +1,13 @@
+Dir.glob("#{File.dirname(__FILE__)}/lib/tasks/*.rake").each { |r| import r }
+Dir.glob("lib/tasks/*.rake").each { |r| import r }
+
+namespace :db do
+  task :load_config do
+    require "#{File.dirname(__FILE__)}/app"
+  end
+end
+
+task :environment do
+    puts "Loading Environment"
+    require "#{File.dirname(__FILE__)}/app"
+end
